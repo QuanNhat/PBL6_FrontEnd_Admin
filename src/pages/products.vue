@@ -1,0 +1,342 @@
+<!-- eslint-disable vue/multi-word-component-names -->
+<template>
+  <div>
+    <h3 class="text-2xl font-bold text-left py-2">Product</h3>
+    <div class="overflow-x-auto relative sm:rounded-lg">
+      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead
+          class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+        >
+          <tr>
+            <th scope="col" class="py-3 px-6">Product name</th>
+            <th scope="col" class="py-3 px-6">
+              <div class="flex items-center">
+                Sold
+                <a href="#"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="ml-1 w-3 h-3"
+                    aria-hidden="true"
+                    fill="currentColor"
+                    viewBox="0 0 320 512"
+                  >
+                    <path
+                      d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"
+                    ></path></svg
+                ></a>
+              </div>
+            </th>
+            <th scope="col" class="py-3 px-6">
+              <div class="flex items-center">
+                Category
+                <a href="#"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="ml-1 w-3 h-3"
+                    aria-hidden="true"
+                    fill="currentColor"
+                    viewBox="0 0 320 512"
+                  >
+                    <path
+                      d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"
+                    ></path></svg
+                ></a>
+              </div>
+            </th>
+            <th scope="col" class="py-3 px-6">
+              <div class="flex items-center">
+                Price
+                <a href="#"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="ml-1 w-3 h-3"
+                    aria-hidden="true"
+                    fill="currentColor"
+                    viewBox="0 0 320 512"
+                  >
+                    <path
+                      d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"
+                    ></path></svg
+                ></a>
+              </div>
+            </th>
+            <th scope="col" class="py-3 px-6">
+              <div class="flex items-center">
+                View
+                <a href="#"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="ml-1 w-3 h-3"
+                    aria-hidden="true"
+                    fill="currentColor"
+                    viewBox="0 0 320 512"
+                  >
+                    <path
+                      d="M27.66 224h264.7c24.6 0 36.89-29.78 19.54-47.12l-132.3-136.8c-5.406-5.406-12.47-8.107-19.53-8.107c-7.055 0-14.09 2.701-19.45 8.107L8.119 176.9C-9.229 194.2 3.055 224 27.66 224zM292.3 288H27.66c-24.6 0-36.89 29.77-19.54 47.12l132.5 136.8C145.9 477.3 152.1 480 160 480c7.053 0 14.12-2.703 19.53-8.109l132.3-136.8C329.2 317.8 316.9 288 292.3 288z"
+                    ></path></svg
+                ></a>
+              </div>
+            </th>
+            <th scope="col" class="py-3 px-6">
+              <span class="sr-only">Edit</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            v-for="(item, index) in productList"
+            :key="index"
+            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+          >
+            <th
+              scope="row"
+              class="py-4 px-2 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+            >
+              {{ item.name }}
+            </th>
+            <td class="py-4 px-4">
+              {{ item.sold }}
+            </td>
+            <td class="py-4 px-4">
+              {{ item.category?.name }}
+            </td>
+            <td class="py-4 px-4">
+              {{ item.price }}
+            </td>
+            <td class="py-4 px-4">
+              {{ item.view }}
+            </td>
+            <td class="py-4 px-6 text-right">
+              <a
+                @click="openModal(item)"
+                href="#"
+                class="font-medium text-blue-600 dark:text-blue-500 hover:underline mx-5"
+                >Edit</a
+              >
+              <a
+                @click="showModalVisible(item._id)"
+                href="#"
+                class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                >Delete</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- modal product update -->
+  <div v-if="modalVisible" class="fixed inset-0 z-10 overflow-y-auto">
+    <div
+      class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+    >
+      <div class="fixed inset-0 transition-opacity" @click="closeEditModal">
+        <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+      </div>
+      <span class="hidden sm:inline-block sm:align-middle sm:h-screen"
+        >&#8203;</span
+      >
+      <div
+        class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+      >
+        <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+          <h3 class="text-lg leading-6 font-medium text-gray-900">
+            Edit Product
+          </h3>
+        </div>
+        <div>
+          <!-- Nút mở modal -->
+
+          <!-- Modal component -->
+        </div>
+
+        <form @submit.prevent="submitForm">
+          <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+            <h3 class="text-lg leading-6 font-medium text-gray-900">
+              Edit Category
+            </h3>
+            <!-- Name Input -->
+            <div class="mt-4">
+              <label for="name" class="block text-sm font-medium text-gray-700"
+                >Name</label
+              >
+              <input
+                v-model="selectedProduct.name"
+                type="text"
+                id="name"
+                name="name"
+                class="mt-1 p-2 w-full border rounded-md"
+              />
+            </div>
+            <div class="mt-4">
+              <label for="sold" class="block text-sm font-medium text-gray-700"
+                >sold</label
+              >
+              <input
+                v-model="selectedProduct.sold"
+                type="text"
+                id="sold"
+                name="sold"
+                class="mt-1 p-2 w-full border rounded-md"
+              />
+            </div>
+            <div class="mt-4">
+              <label
+                for="description"
+                class="block text-sm font-medium text-gray-700"
+                >Description</label
+              >
+              <input
+                v-model="selectedProduct.description"
+                type="text"
+                id="description"
+                name="description"
+                class="mt-1 p-2 w-full border rounded-md"
+              />
+            </div>
+            <div class="mt-4">
+              <label for="image" class="block text-sm font-medium text-gray-700"
+                >Images</label
+              >
+              <input
+                v-model="selectedProduct.images"
+                type="text"
+                id="images"
+                name="images"
+                class="mt-1 p-2 w-full border rounded-md"
+              />
+            </div>
+            <div class="mt-4">
+              <label for="price" class="block text-sm font-medium text-gray-700"
+                >Price</label
+              >
+              <input
+                v-model="selectedProduct.price"
+                type="text"
+                id="price"
+                name="price"
+                class="mt-1 p-2 w-full border rounded-md"
+              />
+            </div>
+            <div class="mt-4">
+              <label
+                for="price_before_discount"
+                class="block text-sm font-medium text-gray-700"
+                >price_before_discount</label
+              >
+              <input
+                v-model="selectedProduct.price_before_discount"
+                type="text"
+                id="price_before_discount"
+                name="price_before_discount"
+                class="mt-1 p-2 w-full border rounded-md"
+              />
+            </div>
+          </div>
+
+          <div class="bg-gray-50 px-4 py-3 sm:px-6">
+            <div class="flex justify-end">
+              <!-- Submit Button -->
+              <button
+                type="submit"
+                class="w-full mx-2 sm:w-auto inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-500 text-base font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-200 sm:ml-3 sm:text-sm"
+              >
+                Submit
+              </button>
+
+              <!-- Close Button -->
+              <button
+                type="button"
+                @click="closeEditModal"
+                class="w-full sm:w-auto inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 mt-2 sm:mt-0 bg-gray-300 text-base font-medium text-gray-700 hover:bg-gray-400 focus:outline-none focus:ring focus:ring-gray-200 sm:text-sm"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- modal product edit end -->
+  <!-- delete confirm -->
+  <selected-delete-form
+    :showModal="modalConfirmVisible"
+    :idCategory="idCategory"
+    title="Confirmation"
+    message="Do you want to proceed?"
+    @confirm="handleConfirm"
+    @cancel="handleCancel"
+    @close="closeModal"
+  ></selected-delete-form>
+</template>
+<script>
+import { API } from "@/api"
+import SelectedDeleteForm from "@/components/SelectedDeleteForm.vue"
+export default {
+  components: {
+    SelectedDeleteForm,
+  },
+  data() {
+    return {
+      productList: [],
+      selectedProduct: null,
+      modalVisible: false,
+      modalConfirmVisible: false,
+      idProduct: null,
+    }
+  },
+  mounted() {
+    API.getAllProducts().then((response) => {
+      this.productList = response.data.data.products
+    })
+  },
+  methods: {
+    openModal(item) {
+      this.selectedProduct = item
+      this.modalVisible = true
+    },
+    handleConfirm() {
+      API.deleteProduct(this.idProduct).then((res) => {
+        console.log(res)
+        API.getAllProducts().then((response) => {
+          this.productList = []
+          this.productList = response.data.data.products
+        })
+      })
+    },
+    handleCancel() {
+      // Xử lý khi người dùng nhấn Cancel
+      console.log("Cancelled")
+    },
+    closeModal() {
+      console.log("dddd")
+      this.modalConfirmVisible = false
+    },
+    closeEditModal() {
+      this.selectedProduct = null
+      this.modalVisible = false
+      document.body.style.overflow = "" // Optional: Enable scrolling when the modal is closed
+    },
+    showModalVisible(product_id) {
+      this.idProduct = product_id
+      this.modalConfirmVisible = true
+    },
+    submitForm() {
+      console.log("Submitted Data:", this.selectedProduct)
+      API.updateProduct(this.selectedProduct._id, this.selectedProduct).then(
+        (res) => {
+          console.log(res)
+          API.getAllProducts().then((response) => {
+            this.productList = []
+            this.productList = response.data.data.products
+          })
+        }
+      )
+      this.selectedCategory = null
+      this.modalVisible = false
+      document.body.style.overflow = ""
+    },
+  },
+}
+</script>
